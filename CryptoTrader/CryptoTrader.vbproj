@@ -47,7 +47,19 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HynrFramework">
+      <HintPath>..\..\..\..\..\Desktop\HynrFramework\HynrFramework\bin\Debug\HynrFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -57,8 +69,17 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.13.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <HintPath>..\packages\DockPanelSuite.2.13.0\lib\net40\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WeifenLuo.WinFormsUI.Docking.ThemeVS2015, Version=2.13.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <HintPath>..\packages\DockPanelSuite.ThemeVS2015.2.13.0\lib\net40\WeifenLuo.WinFormsUI.Docking.ThemeVS2015.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Import Include="HynrFramework" />
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections" />
@@ -72,11 +93,96 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="Migrations\201703161949004_InitialCreate.Designer.vb">
+      <DependentUpon>201703161949004_InitialCreate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703161949004_InitialCreate.vb" />
+    <Compile Include="Migrations\201703191223048_CharteventAdded.Designer.vb">
+      <DependentUpon>201703191223048_CharteventAdded.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703191223048_CharteventAdded.vb" />
+    <Compile Include="Migrations\201703191409097_MarketConnectionUpdated.Designer.vb">
+      <DependentUpon>201703191409097_MarketConnectionUpdated.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703191409097_MarketConnectionUpdated.vb" />
+    <Compile Include="Migrations\201703191410212_MarketConnection2.Designer.vb">
+      <DependentUpon>201703191410212_MarketConnection2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703191410212_MarketConnection2.vb" />
+    <Compile Include="Migrations\201703191413392_marketconnection3.Designer.vb">
+      <DependentUpon>201703191413392_marketconnection3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703191413392_marketconnection3.vb" />
+    <Compile Include="Migrations\201703191421145_marketconnectionupdate.Designer.vb">
+      <DependentUpon>201703191421145_marketconnectionupdate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703191421145_marketconnectionupdate.vb" />
+    <Compile Include="Migrations\201703191437080_entitiesupdatetoincludeIDs.Designer.vb">
+      <DependentUpon>201703191437080_entitiesupdatetoincludeIDs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703191437080_entitiesupdatetoincludeIDs.vb" />
+    <Compile Include="Migrations\Configuration.vb" />
+    <Compile Include="Model\DataClass\ProjectDataClass.vb" />
+    <Compile Include="Model\DataClass\MarketConnectionDataClass.vb" />
+    <Compile Include="Model\DataClass\MarketDataClass.vb" />
+    <Compile Include="Model\DataClass\UserDataClass.vb" />
+    <Compile Include="Model\DataContext\ProjectManagerProjectDataContext.vb" />
+    <Compile Include="Model\DataContext\MarketDataContext.vb" />
+    <Compile Include="Model\DataContext\UserManagerMarketConnectionDataContext.vb" />
+    <Compile Include="Model\DataContext\UserDataContext.vb" />
+    <Compile Include="Model\DataController\ProjectManagerProjectDataController.vb" />
+    <Compile Include="Model\DataController\ProjectMarketDataController.vb" />
+    <Compile Include="Model\DataController\UserManagerMarketConnectionDataController.vb" />
+    <Compile Include="Model\DataController\UserManagerMarketDataController.vb" />
+    <Compile Include="Model\DataController\UserManagerUserDataController.vb" />
+    <Compile Include="Model\Entities\Chart.vb" />
+    <Compile Include="Model\Entities\ChartEvent.vb" />
+    <Compile Include="Model\Entities\ChartSystem.vb" />
+    <Compile Include="Model\Entities\CryptoTraderContext.vb" />
+    <Compile Include="Model\Entities\DataSeries.vb" />
+    <Compile Include="Model\Entities\Indicator.vb" />
+    <Compile Include="Model\Entities\Market.vb" />
+    <Compile Include="Model\Entities\MarketConnection.vb" />
+    <Compile Include="Model\Entities\MarketDataSource.vb" />
+    <Compile Include="Model\Entities\Project.vb" />
+    <Compile Include="Model\Entities\User.vb" />
+    <Compile Include="Model\Factory\MarketConnectionFactory.vb" />
+    <Compile Include="Model\Factory\MarketFactory.vb" />
+    <Compile Include="Model\Factory\ProjectFactory.vb" />
+    <Compile Include="Model\Factory\UserFactory.vb" />
+    <Compile Include="ViewModel\ProjectManager\ProjectManagerMainViewModel.vb" />
+    <Compile Include="ViewModel\ProjectManager\ProjectProjectManagerItemViewModel.vb" />
+    <Compile Include="ViewModel\ProjectManager\ProjectProjectManagerListViewModel.vb" />
+    <Compile Include="ViewModel\Project\MarketProjectListViewItem.vb" />
+    <Compile Include="ViewModel\Project\MarketProjectListViewModel.vb" />
+    <Compile Include="ViewModel\Project\ProjectMainViewModel.vb" />
+    <Compile Include="ViewModel\UserManager\MarketConnectionUserManagerItemViewModel.vb" />
+    <Compile Include="ViewModel\UserManager\MarketConnectionUserManagerListViewModel.vb" />
+    <Compile Include="ViewModel\UserManager\MarketUserManagerItemViewModel.vb" />
+    <Compile Include="ViewModel\UserManager\MarketUserManagerListViewModel.vb" />
+    <Compile Include="ViewModel\UserManager\UserManagerMainViewModel.vb" />
+    <Compile Include="ViewModel\Shared\UserItemViewModel.vb" />
+    <Compile Include="ViewModel\Shared\UserListViewModel.vb" />
+    <Compile Include="View\Controls\MarketConnectionGrid.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Controls\MarketGrid.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Controls\ProjectGrid.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Controls\UserGrid.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\DockWindows\MarketDetailPanel.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="View\Forms\CryptoTraderMainform.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\CryptoTraderMainform.Designer.vb">
+      <DependentUpon>CryptoTraderMainform.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -94,12 +200,70 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="View\Forms\ProjectForm.Designer.vb">
+      <DependentUpon>ProjectForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\ProjectForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\ProjectManagerForm.Designer.vb">
+      <DependentUpon>ProjectManagerForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\ProjectManagerForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\UserManagerForm.Designer.vb">
+      <DependentUpon>UserManagerForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\UserManagerForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201703161949004_InitialCreate.resx">
+      <DependentUpon>201703161949004_InitialCreate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703191223048_CharteventAdded.resx">
+      <DependentUpon>201703191223048_CharteventAdded.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703191409097_MarketConnectionUpdated.resx">
+      <DependentUpon>201703191409097_MarketConnectionUpdated.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703191410212_MarketConnection2.resx">
+      <DependentUpon>201703191410212_MarketConnection2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703191413392_marketconnection3.resx">
+      <DependentUpon>201703191413392_marketconnection3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703191421145_marketconnectionupdate.resx">
+      <DependentUpon>201703191421145_marketconnectionupdate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703191437080_entitiesupdatetoincludeIDs.resx">
+      <DependentUpon>201703191437080_entitiesupdatetoincludeIDs.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DockWindows\MarketDetailPanel.resx">
+      <DependentUpon>MarketDetailPanel.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\CryptoTraderMainform.resx">
+      <DependentUpon>CryptoTraderMainform.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\ProjectForm.resx">
+      <DependentUpon>ProjectForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\ProjectManagerForm.resx">
+      <DependentUpon>ProjectManagerForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\UserManagerForm.resx">
+      <DependentUpon>UserManagerForm.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
@@ -114,7 +278,9 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
